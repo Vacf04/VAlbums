@@ -1,0 +1,19 @@
+
+.button {
+  padding: 0.625rem 1.563rem;
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  transition: var(--transition);
+}
+
+.button:hover {
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+}

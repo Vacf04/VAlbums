@@ -4,7 +4,7 @@ import { MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon } from 'lucide-react';
 
 export default function Header() {
   return (
-    <header>
+    <header className={styles.header}>
       <div className={`container ${styles.headerContent}`}>
         <nav className={styles.mainNav}>
           <span className="font-40">VAlbums</span>

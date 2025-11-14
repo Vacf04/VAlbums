@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from './Introduction.module.css';
 import Button from '../Button';
 
@@ -8,7 +7,9 @@ export default function Introduction() {
       <div className={styles.overlay}></div>
       <div className="container">
         <h1 className="font-72">Your Next Favorite Album Is Here.</h1>
-        <Button href="/albums">Shop Here.</Button>
+        <Button href="/albums" dark={false}>
+          Shop Here.
+        </Button>
       </div>
     </section>
   );

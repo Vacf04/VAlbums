@@ -22,4 +22,9 @@
 .heroImage h1 {
   max-width: 15ch;
   text-align: center;
+  margin-bottom: 1.25rem;;
+}
+
+.heroImage a {
+  margin: 0 auto;
 }

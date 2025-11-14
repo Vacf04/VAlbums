@@ -1,0 +1,22 @@
+.section {
+  color: var(--color-secondary);
+  padding-bottom: 4.375rem;
+  padding-top: 4.375rem;
+}
+
+.headerSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 5.625rem;
+  margin-top: 3.125rem;
+}
+
+.headerSection button {
+  margin: 0;
+}

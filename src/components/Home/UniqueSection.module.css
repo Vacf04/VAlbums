@@ -1,0 +1,12 @@
+.section {
+  color: var(--color-secondary);
+  text-align: center;
+  padding-top: 4.375rem;
+  padding-bottom: 4.375rem;
+}
+
+.section p {
+  font-weight: 400;
+  max-width: 38ch;
+  margin: 0 auto;
+}

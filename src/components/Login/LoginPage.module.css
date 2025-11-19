@@ -1,0 +1,73 @@
+.loginSection {
+  padding-top: 11rem;
+  padding-bottom: 4rem;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  min-height: 75vh;
+}
+
+.loginSection div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loginSection h1 {
+  margin-bottom: .5rem;
+}
+
+.loginSection h2 {
+  max-width: 35rem;
+  margin-top: 1.5rem;
+}
+
+.loginSection h2 a{
+  text-decoration: underline;
+}
+
+.form {
+  width: 100%;
+  max-width: 35rem;
+}
+
+
+.form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: .25rem;
+}
+
+.form input {
+  background-color: var(--color-primary-hover);
+  border: none;
+  border-radius: .25rem;
+  padding: .4rem;
+  width: 100%;
+  border: solid .05rem var(--color-secondary);
+  border-color: transparent;
+  transition: var(--transition);
+}
+
+.form button {
+  display: block;
+  border: none;
+  background-color: var(--color-primary-hover);
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: .25rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: solid .05rem var(--color-secondary);
+  border-color: transparent;
+}
+
+.form button:hover,
+.form input:hover,
+.form input:focus {
+  outline: none;
+  background-color: var(--color-primary);
+  border-color: var(--color-secondary);
+}

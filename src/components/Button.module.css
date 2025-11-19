@@ -20,12 +20,7 @@
   color:var(--color-primary);
 }
 
-.buttonLight:hover {
-  color: var(--color-primary);
-  background-color: var(--color-secondary);
+.button:hover {
+  transform: scale(1.02);
 }
 
-.buttonDark:hover {
-  color: var(--color-secondary) ;
-  background-color: var(--color-primary);
-}

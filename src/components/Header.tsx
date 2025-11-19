@@ -1,10 +1,38 @@
+'use client';
 import Link from 'next/link';
 import styles from './Header.module.css';
 import { MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon } from 'lucide-react';
+import React from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const pathname = usePathname();
+
+  function scrolled() {
+    if (window.scrollY > 5) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }
+
+  React.useEffect(() => {
+    if (pathname === '/') {
+      scrolled();
+      window.addEventListener('scroll', scrolled);
+      return () => {
+        window.removeEventListener('scroll', scrolled);
+      };
+    } else {
+      setIsScrolled(true);
+    }
+  }, [pathname]);
+
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}
+    >
       <div className={`container ${styles.headerContent}`}>
         <nav className={styles.mainNav}>
           <span className="font-40">VAlbums</span>
@@ -34,7 +62,7 @@ export default function Header() {
               />
             </li>
             <li>
-              <Link href={'/account'}>
+              <Link href={'/login'}>
                 <UserIcon />
               </Link>
             </li>

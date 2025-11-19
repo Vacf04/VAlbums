@@ -2,6 +2,7 @@
 :root {
   --white-color: #fff;
   --color-primary: #F5F5F5;
+  --color-primary-hover: #A9A9A9; 
   --color-secondary: #171717;
   --transition: .3s;
 }
@@ -24,6 +25,11 @@ a {
 
 ul {
   list-style: none;
+}
+
+h1, h2 {
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .container {

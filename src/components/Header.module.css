@@ -4,6 +4,18 @@
   z-index: 5;
 }
 
+.headerScrolled {
+  background-color: var(--color-secondary);
+}
+
+.header a {
+  transition: var(--transition);
+}
+
+.header a:hover {
+  color: var(--color-primary-hover);
+}
+
 .headerContent {
   display: flex;
   gap: 1.875rem;
@@ -47,6 +59,7 @@
   width: 1.875rem;
   height: 1.875rem;
   color: var(--color-primary);
+  transition: var(--transition);
 }
 
 .search {
@@ -58,10 +71,19 @@
   padding-left: 2.8rem;
   padding-bottom: .1rem;
   width: 21rem;
+  transition: var(--transition);
 }
 
-.search:focus {
+.search:focus,
+.searchItemNav:hover .search{
   outline: none;
+  border-bottom-color: var(--color-primary-hover);
+
+}
+
+
+.searchItemNav:hover svg {
+  color: var(--color-primary-hover);
 }
 
 .menuIconItemNav {

@@ -2,25 +2,28 @@
 import Link from 'next/link';
 import styles from './LoginPage.module.css';
 import React from 'react';
-import PostLoginForm from '@/actions/PostLoginForm';
+import login from '@/actions/login-form-post';
+import { redirect } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [message, setMessage] = React.useState('');
   const [loading, setLoading] = React.useState(false);
 
   async function handleSubmitFormLogin(e: React.FormEvent<HTMLFormElement>) {
     setLoading(true);
     e.preventDefault();
-    const response = await PostLoginForm({
+    if (!email || !password) setMessage('You need to fill in the fields.');
+    const data = await login({
       email,
       password,
     });
 
-    if (response.token) {
-      console.log('user has been authenticated');
+    if (data.token) {
+      redirect('/');
     } else {
-      console.log('error');
+      setMessage(data.message);
     }
 
     setLoading(false);
@@ -51,6 +54,7 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
+          <p className="font-25">{message}</p>
           <button type="submit" className="font-25">
             {loading ? 'Signing...' : 'Sign In'}
           </button>

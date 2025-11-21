@@ -1,4 +1,5 @@
 'use server';
+import { apiRequest } from '@/functions/api-request';
 import { cookies } from 'next/headers';
 
 export type LoginFormDataType = {
@@ -6,9 +7,13 @@ export type LoginFormDataType = {
   password: string;
 };
 
+export type LoginResponseType = {
+  token: string;
+};
+
 export default async function login(loginFormData: LoginFormDataType) {
   try {
-    const response = await fetch('http://localhost:3001/auth/login', {
+    const data = await apiRequest<LoginResponseType>('auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -18,22 +23,20 @@ export default async function login(loginFormData: LoginFormDataType) {
         password: loginFormData.password,
       }),
     });
-
-    const data = await response.json();
     (await cookies()).set('token', data.token, {
       httpOnly: true,
       secure: true,
       sameSite: 'lax',
       maxAge: 60 * 60 * 24,
     });
-    return data;
+    return { success: true, data: null, error: null };
   } catch (e: unknown) {
     if (e instanceof Error) {
-      return {
-        message: 'Error, Try Again Later',
-      };
+      console.error(e);
+      return { success: false, data: null, error: 'Error, try again later.' };
     } else {
-      return { message: 'Unknown Error' };
+      console.error(e);
+      return { success: false, data: null, error: 'Unknown Error.' };
     }
   }
 }

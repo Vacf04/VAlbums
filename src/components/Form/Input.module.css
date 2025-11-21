@@ -1,0 +1,23 @@
+.label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: .25rem;
+}
+
+.input {
+  background-color: var(--color-primary-hover);
+  border: none;
+  border-radius: .25rem;
+  padding: .4rem;
+  width: 100%;
+  border: solid .05rem var(--color-secondary);
+  border-color: transparent;
+  transition: var(--transition);
+}
+
+.input:hover,
+.input:focus {
+  outline: none;
+  background-color: var(--color-primary);
+  border-color: var(--color-secondary);
+}

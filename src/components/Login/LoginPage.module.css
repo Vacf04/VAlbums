@@ -36,24 +36,6 @@
   max-width: 35rem;
 }
 
-
-.form label {
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: .25rem;
-}
-
-.form input {
-  background-color: var(--color-primary-hover);
-  border: none;
-  border-radius: .25rem;
-  padding: .4rem;
-  width: 100%;
-  border: solid .05rem var(--color-secondary);
-  border-color: transparent;
-  transition: var(--transition);
-}
-
 .form button {
   display: block;
   border: none;
@@ -68,9 +50,7 @@
   border-color: transparent;
 }
 
-.form button:hover,
-.form input:hover,
-.form input:focus {
+.form button:hover{
   outline: none;
   background-color: var(--color-primary);
   border-color: var(--color-secondary);

@@ -1,0 +1,24 @@
+.form {
+  width: 100%;
+  max-width: 35rem;
+}
+
+.form button {
+  display: block;
+  border: none;
+  background-color: var(--color-primary-hover);
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: .25rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: solid .05rem var(--color-secondary);
+  border-color: transparent;
+}
+
+.form button:hover{
+  outline: none;
+  background-color: var(--color-primary);
+  border-color: var(--color-secondary);
+}

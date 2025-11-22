@@ -6,9 +6,20 @@ export async function apiRequest<T = unknown>(
   const url = `${baseUrl}/${route}`;
 
   const response = await fetch(url, options);
+  const responseJson = await response.json();
   if (!response.ok) {
-    throw new Error(`Api error`);
+    if (responseJson.error) {
+      if (typeof responseJson.error === 'string') {
+        return { success: false, data: null, error: [responseJson.message] };
+      } else {
+        return { success: false, data: null, error: responseJson.message };
+      }
+    }
   }
 
-  return (await response.json()) as T;
+  return {
+    success: true,
+    data: responseJson as T,
+    error: null,
+  };
 }

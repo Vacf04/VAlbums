@@ -23,13 +23,18 @@ export default async function login(loginFormData: LoginFormDataType) {
         password: loginFormData.password,
       }),
     });
-    (await cookies()).set('token', data.token, {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24,
-    });
-    return { success: true, data: null, error: null };
+    if (data.data) {
+      const { token } = data.data;
+      (await cookies()).set('token', token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'lax',
+        maxAge: 60 * 60 * 24,
+      });
+      return { success: true, data: null, error: null };
+    } else {
+      return data;
+    }
   } catch (e: unknown) {
     if (e instanceof Error) {
       console.error(e);

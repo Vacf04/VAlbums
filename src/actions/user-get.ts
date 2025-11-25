@@ -27,7 +27,11 @@ export default async function userGet() {
         },
         cache: 'no-store',
       });
-      return { success: true, data, error: null };
+      if (data.data) {
+        return { success: true, data: data.data, error: null };
+      } else {
+        return data;
+      }
     } else {
       return { success: false, data: null, error: 'Token Expired.' };
     }

@@ -1,5 +1,10 @@
 .article {
   border-bottom: solid 0.063rem var(--color-secondary);
+  transition: var(--transition);
+}
+
+.article:hover {
+  transform: translateY(-2px);
 }
 
 .article h1 {

@@ -1,8 +1,20 @@
 import styles from './RecentAlbums.module.css';
 import Button from '../Button';
 import AlbumCard from '../AlbumCard';
+import { ProductsResponseType } from '@/actions/products-get';
+import Message from '../Helper/Message';
 
-export default function RecentAlbums() {
+export default function RecentAlbums({
+  recentProducts,
+}: {
+  recentProducts: {
+    success: boolean;
+    data: ProductsResponseType | null;
+    error: string[] | null;
+  };
+}) {
+  const { success, data, error } = recentProducts;
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -13,18 +25,11 @@ export default function RecentAlbums() {
           </Button>
         </header>
         <div className={styles.productsGrid}>
-          <AlbumCard
-            src="https://cdn-images.dzcdn.net/images/cover/f798a866107715dd6dc1049e498ce21f/0x1900-000000-80-0-0.jpg"
-            alt="test"
-          />
-          <AlbumCard
-            src="https://cdn-images.dzcdn.net/images/cover/f798a866107715dd6dc1049e498ce21f/0x1900-000000-80-0-0.jpg"
-            alt="test"
-          />
-          <AlbumCard
-            src="https://cdn-images.dzcdn.net/images/cover/f798a866107715dd6dc1049e498ce21f/0x1900-000000-80-0-0.jpg"
-            alt="test"
-          />
+          {error && <Message type="ERROR" message={error[0]} />}
+          {data &&
+            data.data.map((product) => (
+              <AlbumCard data={product} key={product.id} />
+            ))}
         </div>
       </div>
     </section>

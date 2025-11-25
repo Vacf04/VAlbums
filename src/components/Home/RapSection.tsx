@@ -10,7 +10,7 @@ export default function RapSection() {
       </div>
       <div className={styles.textContent}>
         <h1 className="font-72">The best of Rap Music is Here.</h1>
-        <Button href="/albums" dark={false}>
+        <Button href="/albums?category='Rap'" dark={false}>
           See Rap Albums.
         </Button>
       </div>

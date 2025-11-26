@@ -1,9 +1,10 @@
 'use client';
-import productGet, { ProductsResponseType } from '@/actions/products-get';
+import productsGet, { ProductsResponseType } from '@/actions/products-get';
 import AlbumsGrid from './AlbumsGrid';
 import styles from './AlbumsPage.module.css';
 import Message from '../Helper/Message';
 import React from 'react';
+import Loading from '../Loading';
 
 export default function AlbumsPage() {
   const [error, setError] = React.useState<string[] | null>(null);
@@ -12,18 +13,21 @@ export default function AlbumsPage() {
 
   React.useEffect(() => {
     async function fetchData() {
-      const { success, data, error } = await productGet({ page: 1, limit: 15 });
+      const { success, data, error } = await productsGet({
+        page: 1,
+        limit: 15,
+      });
       setError(error);
       setData(data);
     }
     setLoading(true);
     fetchData();
     setLoading(false);
-  });
+  }, []);
 
-  if (loading) return <p>loading...</p>;
+  if (loading) return <Loading fullPage={true} />;
   return (
-    <section className={styles.albumsSection}>
+    <section className={`${styles.albumsSection} fadeInUp`}>
       <div className="container">
         <h1 className="font-72">Albums</h1>
         {error && <Message type="ERROR" message={error[0]} />}

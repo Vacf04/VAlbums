@@ -20,15 +20,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await userGet();
+  const data = await userGet();
 
   return (
     <html lang="pt-BR">
       <body className={`${quickSand.variable} ${quickSand.variable}`}>
-        <UserContextProvider user={user}>
-          <Header />
-          {children}
-          <Footer />
+        <UserContextProvider user={data.data}>
+          <div className="app">
+            <Header />
+            <main className="main">{children}</main>
+            <Footer />
+          </div>
         </UserContextProvider>
       </body>
     </html>

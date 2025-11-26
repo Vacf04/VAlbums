@@ -2,13 +2,11 @@
 import { apiRequest } from '@/functions/api-request';
 import { UserResponseType } from './user-get';
 
-export type RegisterFormDataType = {
+export default async function register(registerFormData: {
   name: string;
   email: string;
   password: string;
-};
-
-export default async function register(registerFormData: RegisterFormDataType) {
+}) {
   try {
     const data = await apiRequest<UserResponseType>('auth/register', {
       method: 'POST',

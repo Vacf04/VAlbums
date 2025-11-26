@@ -1,19 +1,6 @@
 'use server';
 import { apiRequest } from '@/functions/api-request';
-
-interface CategoryGetParams {
-  page?: number;
-  limit?: number;
-  search?: string;
-}
-
-export type CategoryResponseType = {
-  id: string;
-  name: string;
-  slug: string;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { CategoryGetParams, CategoryResponseType } from '@/types/category';
 
 export default async function categoryGet({
   page = 1,

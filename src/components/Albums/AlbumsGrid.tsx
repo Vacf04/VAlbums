@@ -1,4 +1,4 @@
-import { ProductResponseType } from '@/actions/products-get';
+import { ProductResponseType } from '@/types/product';
 import styles from './AlbumsGrid.module.css';
 import AlbumCard from '../AlbumCard';
 

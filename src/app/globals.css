@@ -55,6 +55,32 @@ h1, h2 {
   font-weight: 500;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp var(--transition) ease-out forwards;
+  opacity: 0; 
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}
+
+.main {
+  flex: 1;
+}
+
 @media(max-width: 1200px) {
   html {
     font-size: 85%;

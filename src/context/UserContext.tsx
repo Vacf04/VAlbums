@@ -3,7 +3,7 @@
 import React from 'react';
 
 type User = {
-  id: number;
+  id: string;
 };
 
 type IUserContext = {

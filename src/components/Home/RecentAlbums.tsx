@@ -1,22 +1,19 @@
 import styles from './RecentAlbums.module.css';
 import Button from '../Button';
 import AlbumCard from '../AlbumCard';
-import { ProductsResponseType } from '@/actions/products-get';
+import { ProductsResponseType } from '@/types/product';
 import Message from '../Helper/Message';
+import { ApiResponse } from '@/types/apiResponse';
 
 export default function RecentAlbums({
   recentProducts,
 }: {
-  recentProducts: {
-    success: boolean;
-    data: ProductsResponseType | null;
-    error: string[] | null;
-  };
+  recentProducts: ApiResponse<ProductsResponseType>;
 }) {
   const { success, data, error } = recentProducts;
 
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} fadeInUp`}>
       <div className="container">
         <header className={styles.headerSection}>
           <h1 className="font-72">Recent Albums.</h1>
